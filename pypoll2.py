@@ -55,7 +55,7 @@ with open(file_to_load) as election_data:
 
 
 #print the total votes
-print(row)
+print(total_votes)
 
    # headers = next(file_reader)
     #print(headers)
