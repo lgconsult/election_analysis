@@ -1,3 +1,4 @@
+#Add Dependencies
 import csv
 import os
 # csvpath = os.path.join("resources/election_results.csv")
@@ -19,11 +20,15 @@ import os
 #dir(os)
 #Assign a variable for the file to load and the path
 file_to_load = os.path.join("resources", "election_results.csv")
-
+#Assign a variable to save the file
 file_to_save = os.path.join("analysis", "election_analysis.txt")
 
-with open(file_to_load) as election_data:
 
+#initialize a total vote counter
+total_votes = 0
+#Open the election results and read the file
+with open(file_to_load) as election_data:
+    file_reader = csv.reader(election_data)
 # open(file_to_load, "w")
 #safer way to open file
 # with open(file_to_load) as election_data:
@@ -39,8 +44,18 @@ with open(file_to_load) as election_data:
 # outfile.close()
 
 # Read the file object with the reader function
-    file_reader = csv.reader(election_data)
+    #file_reader = csv.reader(election_data)
+
+#Read the header row
+    headers = next(file_reader)
 
 #Print each row in the CSV file
-    headers = next(file_reader)
-    print(headers)
+    for row in file_reader:
+        total_votes = total_votes + 1
+
+
+#print the total votes
+print(row)
+
+   # headers = next(file_reader)
+    #print(headers)
